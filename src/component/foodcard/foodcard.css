@@ -1,0 +1,149 @@
+.food-card {
+  overflow: hidden;
+  border: none;
+  border-radius: 16px;
+  background: var(--white);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  animation: fadeIn 0.5s ease-in;
+}
+
+.food-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(139, 21, 56, 0.15);
+}
+
+.food-card:active {
+  transform: translateY(-4px);
+}
+
+.food-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: var(--cream);
+  position: relative;
+}
+
+.food-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.food-card:hover .food-image img {
+  transform: scale(1.08);
+}
+
+.food-image-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--cream-dark) 100%);
+  font-size: 52px;
+}
+
+.food-info {
+  padding: 20px;
+}
+
+.food-name {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--burgundy);
+  line-height: 1.3;
+}
+
+.food-description {
+  margin: 0 0 15px;
+  font-size: 0.9rem;
+  color: var(--charcoal-light);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.food-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--golden);
+}
+
+.btn-view-details {
+  background: var(--burgundy);
+  color: var(--white);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-view-details:hover {
+  background: var(--burgundy-dark);
+  transform: translateX(3px);
+}
+
+@media (max-width: 768px) {
+  .food-image {
+    height: 200px;
+  }
+
+  .food-name {
+    font-size: 1.15rem;
+  }
+
+  .food-description {
+    font-size: 0.85rem;
+  }
+
+  .price {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .food-image {
+    height: 180px;
+  }
+
+  .food-info {
+    padding: 16px;
+  }
+
+  .food-name {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+  }
+
+  .food-description {
+    font-size: 0.8rem;
+    margin-bottom: 12px;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  .btn-view-details {
+    padding: 6px 14px;
+    font-size: 0.8rem;
+  }
+}

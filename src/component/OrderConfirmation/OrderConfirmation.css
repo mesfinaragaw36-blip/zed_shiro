@@ -1,0 +1,159 @@
+.confirmation-view {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+  padding: 20px;
+}
+
+.confirmation-content {
+  text-align: center;
+  max-width: 600px;
+  background: var(--white);
+  padding: 60px 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  animation: scaleIn 0.5s ease-out;
+}
+
+.confirmation-icon {
+  width: 100px;
+  height: 100px;
+  background: var(--golden);
+  color: var(--burgundy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 900;
+  margin: 0 auto 30px;
+  animation: bounce 0.6s ease-out 0.3s both;
+}
+
+.confirmation-content h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--burgundy);
+  margin: 0 0 15px;
+}
+
+.confirmation-message {
+  font-size: 1.2rem;
+  color: var(--charcoal-light);
+  margin: 0 0 40px;
+}
+
+.order-details {
+  background: var(--cream);
+  padding: 30px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+}
+
+.order-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--burgundy);
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.order-table {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--golden);
+  margin-bottom: 20px;
+}
+
+.order-time {
+  font-size: 1rem;
+  color: var(--charcoal-light);
+  padding-top: 20px;
+  border-top: 2px solid var(--cream-dark);
+}
+
+.confirmation-content .btn {
+  background: var(--burgundy);
+  border: none;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 15px 50px;
+  transition: all 0.3s ease;
+}
+
+.confirmation-content .btn:hover {
+  background: var(--burgundy-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(139, 21, 56, 0.3);
+}
+
+@media (max-width: 768px) {
+  .confirmation-content {
+    padding: 50px 30px;
+  }
+
+  .confirmation-icon {
+    width: 80px;
+    height: 80px;
+    font-size: 2.5rem;
+  }
+
+  .confirmation-content h1 {
+    font-size: 2rem;
+  }
+
+  .confirmation-message {
+    font-size: 1.1rem;
+  }
+
+  .order-number {
+    font-size: 1.7rem;
+  }
+
+  .order-table {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .confirmation-content {
+    padding: 40px 20px;
+  }
+
+  .confirmation-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+
+  .confirmation-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .confirmation-message {
+    font-size: 1rem;
+  }
+
+  .order-details {
+    padding: 25px 20px;
+  }
+
+  .order-number {
+    font-size: 1.5rem;
+  }
+
+  .order-table {
+    font-size: 1.2rem;
+  }
+
+  .order-time {
+    font-size: 0.95rem;
+  }
+
+  .confirmation-content .btn {
+    padding: 12px 40px;
+    font-size: 1rem;
+  }
+}
