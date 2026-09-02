@@ -1,14 +1,9 @@
 import { useState, useEffect } from "react";
-import Header from "./component/Header";
-import CategoryNav from "./component/catagorynav/catagorynav";
-import FoodCard from "./component/foodcard/foodcard";
-import Search from "./component/search/search";
-import FoodDetails from "./component/FoodDetails/FoodDetails";
+import Header from "./component/Header/Header";
+import HomePage from "./pages/HomePage";
+import MenuPage from "./pages/MenuPage";
 import Footer from "./component/Footer/Footer";
-import WelcomeScreen from "./component/WelcomeScreen/WelcomeScreen";
 import Cart from "./component/Cart/Cart";
-import OrderConfirmation from "./component/OrderConfirmation/OrderConfirmation";
-import { t } from "./translations";
 import "./App.css";
 
 const categories = [
@@ -459,6 +454,44 @@ const menuItems = [
     image: "/image/fanta.jpg",
     available: true,
   },
+  {
+    id: 24,
+    name: {
+      en: "Tea",
+      am: "ሻይ"
+    },
+    price: 30,
+    category: "ለስላሳ መጠጦች",
+    description: {
+      en: "Hot traditional Ethiopian tea.",
+      am: "ሞቅ ያለ ባህላዊ የኢትዮጵያ ሻይ።"
+    },
+    ingredients: {
+      en: "Tea leaves, water, sugar (optional)",
+      am: "የሻይ ቅጠል፣ ውሃ፣ ስኳር (አማራጭ)"
+    },
+    image: "/image/tea.jpg",
+    available: true,
+  },
+  {
+    id: 25,
+    name: {
+      en: "Coffee",
+      am: "ቡና"
+    },
+    price: 40,
+    category: "ለስላሳ መጠጦች",
+    description: {
+      en: "Traditional Ethiopian coffee ceremony.",
+      am: "ባህላዊ የኢትዮጵያ የቡና ሥርዓት።"
+    },
+    ingredients: {
+      en: "Fresh roasted coffee beans, water",
+      am: "ትኩስ የተጠበሰ የቡና ፍሬ፣ ውሃ"
+    },
+    image: "/image/coffe.jpg",
+    available: true,
+  },
 ];
 
 function App() {
@@ -467,160 +500,78 @@ function App() {
     return localStorage.getItem("zed-shiro-language") || "en";
   });
   
-  const [currentView, setCurrentView] = useState("welcome");
-  const [selectedCategory, setSelectedCategory] = useState("ሁሉም");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedItem, setSelectedItem] = useState(null);
+  // Routing state - 'home' or 'menu'
+  const [currentPage, setCurrentPage] = useState("home");
+  const [pendingSection, setPendingSection] = useState(null);
+  
+  // Cart state
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
-  const [orderNumber, setOrderNumber] = useState(null);
   
   // Save language preference to localStorage
   useEffect(() => {
     localStorage.setItem("zed-shiro-language", language);
   }, [language]);
   
+  // Handle section scrolling after navigation
+  useEffect(() => {
+    if (currentPage === 'home' && pendingSection) {
+      // Small delay to ensure page is rendered
+      setTimeout(() => {
+        const element = document.getElementById(pendingSection);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        setPendingSection(null);
+      }, 100);
+    }
+  }, [currentPage, pendingSection]);
+  
   // Language toggle function
   const toggleLanguage = () => {
     setLanguage(prev => prev === "en" ? "am" : "en");
   };
 
-  const filteredItems = menuItems.filter((item) => {
-    if (!item.available) return false;
-    const matchesCategory =
-      selectedCategory === "ሁሉም" || item.category === selectedCategory;
-    const itemName = typeof item.name === 'object' ? item.name[language] : item.name;
-    const matchesSearch = itemName
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
-    return matchesCategory && matchesSearch;
-  });
-
-  const addToCart = (item, quantity) => {
-    const existingItem = cart.find((cartItem) => cartItem.id === item.id);
-    if (existingItem) {
-      setCart(
-        cart.map((cartItem) =>
-          cartItem.id === item.id
-            ? { ...cartItem, quantity: cartItem.quantity + quantity }
-            : cartItem
-        )
-      );
+  // Navigation handler
+  const handleNavigate = (page, section = null) => {
+    setCurrentPage(page);
+    if (section) {
+      setPendingSection(section);
     } else {
-      setCart([...cart, { ...item, quantity }]);
-    }
-    setSelectedItem(null);
-  };
-
-  const removeFromCart = (itemId) => {
-    setCart(cart.filter((item) => item.id !== itemId));
-  };
-
-  const updateCartQuantity = (itemId, newQuantity) => {
-    if (newQuantity <= 0) {
-      removeFromCart(itemId);
-    } else {
-      setCart(
-        cart.map((item) =>
-          item.id === itemId ? { ...item, quantity: newQuantity } : item
-        )
-      );
+      setPendingSection(null);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   };
 
-  const getTotalAmount = () => {
-    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+  // Navigate to menu page
+  const navigateToMenu = () => {
+    handleNavigate('menu');
   };
-
-  const placeOrder = (tableNumber) => {
-    const newOrderNumber = Math.floor(1000 + Math.random() * 9000);
-    setOrderNumber({ number: newOrderNumber, table: tableNumber });
-    setCart([]);
-    setShowCart(false);
-    setCurrentView("orderConfirmation");
-  };
-
-  if (currentView === "welcome") {
-    return <WelcomeScreen language={language} onExplore={() => setCurrentView("menu")} onLanguageToggle={toggleLanguage} />;
-  }
-
-  if (currentView === "orderConfirmation") {
-    return (
-      <OrderConfirmation
-        language={language}
-        orderNumber={orderNumber}
-        onBackToMenu={() => {
-          setCurrentView("menu");
-          setOrderNumber(null);
-        }}
-      />
-    );
-  }
 
   return (
-    <div className="app menu-view">
-      <Header language={language} cartCount={cart.length} onCartClick={() => setShowCart(true)} onLanguageToggle={toggleLanguage} />
-
-      <Search language={language} searchTerm={searchTerm} onSearchChange={setSearchTerm} />
-
-      <CategoryNav
+    <div className="app">
+      <Header 
         language={language}
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
+        cartCount={cart.length}
+        onCartClick={() => setShowCart(true)}
+        onLanguageToggle={toggleLanguage}
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
       />
 
-      <main className="menu-container">
-        <div className="intro">
-          <span>🍽️</span>
-          <h2>{t(language, 'ourMenu')}</h2>
-          <p className="result-count">{filteredItems.length} {t(language, 'dishes')}</p>
-        </div>
-
-        <section className="container py-4">
-          {filteredItems.length > 0 ? (
-            <div className="row g-4">
-              {filteredItems.map((item) => (
-                <div
-                  className="col-12 col-sm-6 col-lg-4 col-xl-3"
-                  key={item.id}
-                >
-                  <FoodCard
-                    language={language}
-                    item={item}
-                    onClick={() => setSelectedItem(item)}
-                  />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="text-center py-5">
-              <div className="fs-1 mb-3">🔍</div>
-              <h3>{t(language, 'noDishesFound')}</h3>
-              <p className="text-muted">
-                {t(language, 'tryAdjusting')}
-              </p>
-              <button
-                type="button"
-                className="btn btn-dark rounded-pill px-4"
-                onClick={() => {
-                  setSearchTerm("");
-                  setSelectedCategory("ሁሉም");
-                }}
-              >
-                {t(language, 'showAllDishes')}
-              </button>
-            </div>
-          )}
-        </section>
-      </main>
-
-      {selectedItem && (
-        <FoodDetails
+      {currentPage === 'home' && (
+        <HomePage 
           language={language}
-          item={selectedItem}
-          onClose={() => setSelectedItem(null)}
-          onAddToCart={addToCart}
+          onNavigateToMenu={navigateToMenu}
+        />
+      )}
+
+      {currentPage === 'menu' && (
+        <MenuPage 
+          language={language}
+          menuItems={menuItems}
+          cart={cart}
+          setCart={setCart}
         />
       )}
 
@@ -629,9 +580,24 @@ function App() {
           language={language}
           cart={cart}
           onClose={() => setShowCart(false)}
-          onUpdateQuantity={updateCartQuantity}
-          onRemoveItem={removeFromCart}
-          onPlaceOrder={placeOrder}
+          onUpdateQuantity={(itemId, newQuantity) => {
+            if (newQuantity <= 0) {
+              setCart(cart.filter((item) => item.id !== itemId));
+            } else {
+              setCart(
+                cart.map((item) =>
+                  item.id === itemId ? { ...item, quantity: newQuantity } : item
+                )
+              );
+            }
+          }}
+          onRemoveItem={(itemId) => {
+            setCart(cart.filter((item) => item.id !== itemId));
+          }}
+          onPlaceOrder={(tableNumber) => {
+            // Order placement is handled in MenuPage
+            setShowCart(false);
+          }}
         />
       )}
 

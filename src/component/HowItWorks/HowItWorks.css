@@ -1,0 +1,161 @@
+.how-it-works-section {
+  padding: 100px 20px;
+  background: var(--white);
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-heading {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 900;
+  color: var(--burgundy);
+  margin: 0 0 15px;
+  letter-spacing: 2px;
+}
+
+.section-subheading {
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  color: var(--charcoal-light);
+  margin: 0;
+  font-weight: 300;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 45px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.step-card {
+  background: linear-gradient(135deg, var(--cream) 0%, var(--white) 100%);
+  border-radius: 20px;
+  padding: 35px 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.step-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, var(--golden) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(139, 21, 56, 0.15);
+  border-color: var(--golden);
+}
+
+.step-card:hover::before {
+  opacity: 0.03;
+}
+
+.step-icon {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.1));
+}
+
+.step-number {
+  display: inline-block;
+  background: var(--burgundy);
+  color: var(--white);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+}
+
+.step-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--burgundy);
+  margin: 0 0 15px;
+  letter-spacing: 0.3px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-description {
+  font-size: 1rem;
+  color: var(--charcoal-light);
+  line-height: 1.7;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 992px) {
+  .steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .how-it-works-section {
+    padding: 70px 20px;
+  }
+
+  .section-header {
+    margin-bottom: 45px;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    max-width: 450px;
+    margin: 0 auto;
+  }
+
+  .step-card {
+    padding: 30px 20px;
+  }
+
+  .step-icon {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .how-it-works-section {
+    padding: 60px 15px;
+  }
+
+  .step-card {
+    padding: 25px 20px;
+    border-radius: 15px;
+  }
+
+  .step-icon {
+    font-size: 2.5rem;
+  }
+
+  .step-title {
+    font-size: 1.15rem;
+  }
+
+  .step-description {
+    font-size: 0.95rem;
+  }
+}

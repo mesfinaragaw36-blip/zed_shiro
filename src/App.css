@@ -18,10 +18,15 @@
 
 body {
   margin: 0;
-  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   background: var(--cream);
   color: var(--charcoal);
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 button {
@@ -32,16 +37,28 @@ button {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background: var(--white);
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure footer stays at bottom */
+.app > *:last-child {
+  margin-top: auto;
 }
 
 /* Menu View */
 .menu-view {
   background: var(--cream);
+  width: 100%;
+  max-width: 100%;
 }
 
 .menu-container {
   flex: 1;
-  width: min(1200px, 100%);
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   padding: 40px 20px 60px;
 }
@@ -123,27 +140,87 @@ button {
   }
 }
 
-/* Responsive Design */
+/* Responsive Design - Mobile First */
+@media (max-width: 992px) {
+  .menu-container {
+    padding: 25px 15px 50px;
+  }
+}
+
 @media (max-width: 768px) {
   .menu-container {
-    padding: 30px 15px 50px;
+    padding: 20px 15px 45px;
+  }
+
+  .intro {
+    margin-bottom: 30px;
   }
 
   .intro span {
     font-size: 40px;
+    margin-bottom: 12px;
   }
 
   .intro h2 {
     font-size: 2rem;
   }
+  
+  .result-count {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 576px) {
+  .menu-container {
+    padding: 20px 12px 40px;
+  }
+
+  .intro {
+    margin-bottom: 25px;
+  }
+
+  .intro span {
+    font-size: 36px;
+    margin-bottom: 10px;
+  }
+
   .intro h2 {
     font-size: 1.75rem;
   }
 
   .result-count {
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile QR Code Optimizations */
+@media (max-width: 480px) {
+  .menu-container {
+    padding: 15px 10px 35px;
+  }
+
+  .intro h2 {
+    font-size: 1.6rem;
+  }
+
+  /* Ensure touch targets are accessible */
+  button {
+    min-height: 44px;
+  }
+}
+
+/* Landscape mobile adjustments */
+@media (max-height: 600px) and (orientation: landscape) {
+  .intro {
+    margin-bottom: 20px;
+  }
+
+  .intro span {
+    font-size: 32px;
+    margin-bottom: 8px;
+  }
+
+  .intro h2 {
+    font-size: 1.5rem;
   }
 }
