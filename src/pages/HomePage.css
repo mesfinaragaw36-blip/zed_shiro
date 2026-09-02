@@ -1,6 +1,7 @@
 .home-page {
   width: 100%;
   overflow-x: hidden;
+  margin-top: -64px;
 }
 
 /* Ensure smooth scrolling for anchor links */
