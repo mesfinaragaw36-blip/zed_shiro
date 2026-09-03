@@ -92,7 +92,8 @@
 
 @media (max-width: 768px) {
   .confirmation-view > .confirmation-content {
-    margin-top: 0;
+    align-self: center;
+    margin: 0 !important;
   }
 
   .confirmation-content {
