@@ -91,6 +91,10 @@
 }
 
 @media (max-width: 768px) {
+  .confirmation-view > .confirmation-content {
+    margin-top: 0;
+  }
+
   .confirmation-content {
     padding: 50px 30px;
   }
