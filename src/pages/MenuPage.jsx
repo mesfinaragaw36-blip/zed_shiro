@@ -25,6 +25,7 @@ function MenuPage({ language, menuItems, cart, setCart }) {
   const [showCart, setShowCart] = useState(false);
   const [orderNumber, setOrderNumber] = useState(null);
   const [showOrderConfirmation, setShowOrderConfirmation] = useState(false);
+  const [nextOrderNumber, setNextOrderNumber] = useState(1);
 
   const filteredItems = menuItems.filter((item) => {
     if (!item.available) return false;
@@ -70,7 +71,8 @@ function MenuPage({ language, menuItems, cart, setCart }) {
   };
 
   const placeOrder = (tableNumber) => {
-    const newOrderNumber = Math.floor(1000 + Math.random() * 9000);
+    const newOrderNumber = nextOrderNumber;
+    setNextOrderNumber((currentNumber) => currentNumber + 1);
     setOrderNumber({ number: newOrderNumber, table: tableNumber });
     setCart([]);
     setShowCart(false);

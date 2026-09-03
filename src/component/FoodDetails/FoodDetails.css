@@ -28,10 +28,13 @@
 .modal-header,
 .modal-footer {
   padding: 0.55rem 0.9rem;
+  flex-shrink: 0;
 }
 
 .modal-body {
   padding: 0.2rem 0.9rem 0.5rem;
+  min-height: 0;
+  overflow-y: auto;
 }
 
 .food-details-image {

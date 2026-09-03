@@ -102,6 +102,57 @@
   color: var(--golden);
 }
 
+.location-panel {
+  align-items: center;
+  background: var(--cream);
+  border: 2px solid var(--cream-dark);
+  border-radius: 15px;
+  color: var(--charcoal);
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  margin-top: 40px;
+  padding: 28px 30px;
+}
+
+.location-panel-content {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+}
+
+.location-panel .contact-icon {
+  flex: 0 0 auto;
+  margin: 0;
+}
+
+.location-heading {
+  color: var(--burgundy);
+  font-size: 1.25rem;
+  margin: 0 0 5px;
+}
+
+.location-description {
+  color: var(--charcoal-light);
+  margin: 0;
+}
+
+.location-button {
+  background: var(--golden);
+  border-color: var(--golden);
+  color: var(--charcoal);
+  flex: 0 0 auto;
+  font-weight: 700;
+  padding: 12px 20px;
+}
+
+.location-button:hover,
+.location-button:focus {
+  background: var(--golden-light);
+  border-color: var(--golden-light);
+  color: var(--charcoal);
+}
+
 @media (max-width: 768px) {
   .contact-section {
     padding: 70px 20px;
@@ -120,6 +171,17 @@
     padding: 25px;
   }
 
+  .location-panel {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .location-button {
+    text-align: center;
+    width: 100%;
+  }
+
   .contact-icon {
     font-size: 2.2rem;
   }
@@ -133,6 +195,20 @@
   .contact-card {
     padding: 20px;
     border-radius: 12px;
+  }
+
+  .location-panel {
+    border-radius: 12px;
+    padding: 22px 20px;
+  }
+
+  .location-panel-content {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .location-description {
+    font-size: 0.95rem;
   }
 
   .contact-icon {

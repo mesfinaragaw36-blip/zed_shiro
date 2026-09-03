@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import MenuPage from "./pages/MenuPage";
 import Footer from "./component/Footer/Footer";
 import Cart from "./component/Cart/Cart";
+import OrderConfirmation from "./component/OrderConfirmation/OrderConfirmation";
 import "./App.css";
 
 const categories = [
@@ -507,6 +508,9 @@ function App() {
   // Cart state
   const [cart, setCart] = useState([]);
   const [showCart, setShowCart] = useState(false);
+  const [orderNumber, setOrderNumber] = useState(null);
+  const [showOrderConfirmation, setShowOrderConfirmation] = useState(false);
+  const [nextOrderNumber, setNextOrderNumber] = useState(1);
   
   // Save language preference to localStorage
   useEffect(() => {
@@ -547,6 +551,20 @@ function App() {
   const navigateToMenu = () => {
     handleNavigate('menu');
   };
+
+  if (showOrderConfirmation) {
+    return (
+      <OrderConfirmation
+        language={language}
+        orderNumber={orderNumber}
+        onBackToMenu={() => {
+          setShowOrderConfirmation(false);
+          setOrderNumber(null);
+          handleNavigate('menu');
+        }}
+      />
+    );
+  }
 
   return (
     <div className="app">
@@ -595,8 +613,12 @@ function App() {
             setCart(cart.filter((item) => item.id !== itemId));
           }}
           onPlaceOrder={(tableNumber) => {
-            // Order placement is handled in MenuPage
+            const newOrderNumber = nextOrderNumber;
+            setNextOrderNumber((currentNumber) => currentNumber + 1);
+            setOrderNumber({ number: newOrderNumber, table: tableNumber });
+            setCart([]);
             setShowCart(false);
+            setShowOrderConfirmation(true);
           }}
         />
       )}
