@@ -138,9 +138,9 @@
 }
 
 .location-button {
-  background: var(--golden);
-  border-color: var(--golden);
-  color: var(--charcoal);
+  background-color: var(--burgundy) !important;
+  border-color: var(--burgundy) !important;
+  color: var(--white);
   flex: 0 0 auto;
   font-weight: 700;
   padding: 12px 20px;
@@ -148,9 +148,9 @@
 
 .location-button:hover,
 .location-button:focus {
-  background: var(--golden-light);
-  border-color: var(--golden-light);
-  color: var(--charcoal);
+  background-color: var(--burgundy-dark) !important;
+  border-color: var(--burgundy-dark) !important;
+  color: var(--white);
 }
 
 @media (max-width: 768px) {
