@@ -25,8 +25,8 @@ export const translations = {
     
     // Our Story Section
     ourStoryHeading: "Our Story",
-    ourStoryStarted: "Our Story Started in 2006",
-    ourStoryDescription: "Since 2006, ZED SHIRO has been serving authentic Ethiopian cuisine with passion and dedication. Our journey began with a simple vision: to bring the rich flavors of Ethiopia to every table. For nearly two decades, we have continued to honor traditional recipes while serving our valued customers with quality food and warm hospitality.",
+    ourStoryStarted: "Our Story Started in 2000",
+    ourStoryDescription: "Since 2000, ZED SHIRO has been serving authentic Ethiopian cuisine with passion and dedication. Our journey began with a simple vision: to bring the rich flavors of Ethiopia to every table. For nearly two decades, we have continued to honor traditional recipes while serving our valued customers with quality food and warm hospitality.",
     
     // Payment Methods Section
     paymentMethodsHeading: "Payment Methods",
@@ -156,8 +156,8 @@ export const translations = {
     
     // Our Story Section
     ourStoryHeading: "ስለ እኛ",
-    ourStoryStarted: "ታሪካችን በ2006 ዓ.ም ተጀመረ",
-    ourStoryDescription: "ከ2006 ዓ.ም ጀምሮ ዜድ ሽሮ ትክክለኛ የኢትዮጵያ ምግብ በፍቅር እና በቁርጠኝነት እያቀረበ ይገኛል። ጉዞያችን ከቀላል ራዕይ ጋር ተጀመረ፡ የኢትዮጵያን የበለፀገ ጣዕም ወደ እያንዳንዱ ጠረጴዛ ማድረስ። ለሁለት አስርት ዓመታት ያህል የባህላዊ የምግብ አዘገጃጀት ዘዴዎችን እየከበርን ደንበኞቻችንን በጥራት ምግብ እና በሞቅ ታሞነት እናገለግላለን።",
+    ourStoryStarted: "ታሪካችን በ2000 ዓ.ም ተጀመረ",
+    ourStoryDescription: "ከ2000 ዓ.ም ጀምሮ ዜድ ሽሮ ትክክለኛ የኢትዮጵያ ምግብ በፍቅር እና በቁርጠኝነት እያቀረበ ይገኛል። ጉዞያችን ከቀላል ራዕይ ጋር ተጀመረ፡ የኢትዮጵያን የበለፀገ ጣዕም ወደ እያንዳንዱ ጠረጴዛ ማድረስ። ለሁለት አስርት ዓመታት ያህል የባህላዊ የምግብ አዘገጃጀት ዘዴዎችን እየከበርን ደንበኞቻችንን በጥራት ምግብ እና በሞቅ ታሞነት እናገለግላለን።",
     
     // Payment Methods Section
     paymentMethodsHeading: "የክፍያ መንገዶች",
