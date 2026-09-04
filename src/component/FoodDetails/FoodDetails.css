@@ -12,8 +12,9 @@
 
 .modal-dialog {
   animation: scaleIn 0.3s ease-out;
-  max-width: 420px;
-  width: min(86vw, 420px);
+  flex: 0 0 min(420px, calc(100vw - 2rem));
+  width: min(420px, calc(100vw - 2rem));
+  max-width: min(420px, calc(100vw - 2rem));
   margin: 0 auto;
 }
 
@@ -22,7 +23,8 @@
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 16px 32px rgba(25, 15, 10, 0.18);
-  max-height: 80vh;
+  width: 100%;
+  height: min(620px, calc(100vh - 2rem));
 }
 
 .modal-header,
@@ -193,16 +195,6 @@
 }
 
 @media (max-width: 768px) {
-  .modal-dialog {
-    max-width: 390px;
-    width: min(88vw, 390px);
-    margin: 0 auto;
-  }
-
-  .modal-content {
-    max-height: 78vh;
-  }
-
   .modal-body {
     padding: 0.15rem 0.8rem 0.45rem;
   }
@@ -241,16 +233,6 @@
 }
 
 @media (max-width: 576px) {
-  .modal-dialog {
-    max-width: 360px;
-    width: min(90vw, 360px);
-    margin: 0 auto;
-  }
-
-  .modal-content {
-    max-height: 76vh;
-  }
-
   .modal-body {
     padding: 0.1rem 0.7rem 0.4rem;
   }

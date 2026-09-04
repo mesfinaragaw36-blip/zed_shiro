@@ -138,7 +138,7 @@ const menuItems = [
       en: "Kikil",
       am: "ቅቅል"
     },
-    price: 300,
+    price: 350,
     category: "የስጋ ምግቦች",
     description: {
       en: "Traditional Ethiopian dish prepared with finely cut meat.",
@@ -176,7 +176,7 @@ const menuItems = [
       en: "Tibs",
       am: "ጥብስ"
     },
-    price: 300,
+    price: 350,
     category: "የስጋ ምግቦች",
     description: {
       en: "Sautéed pieces of beef with onion, pepper and Ethiopian spices.",
@@ -214,7 +214,7 @@ const menuItems = [
       en: "Milas Senber",
       am: "ምላስ ሰንበር"
     },
-    price: 300,
+    price: 350,
     category: "የስጋ ምግቦች",
     description: {
       en: "Special Ethiopian meat dish prepared with tongue and vegetables.",
@@ -252,7 +252,7 @@ const menuItems = [
       en: "Gomen",
       am: "ጎመን"
     },
-    price: 170,
+    price: 200,
     category: "ፓስታ እና አትክልት",
     description: {
       en: "Traditional Ethiopian collard greens prepared with spices.",
@@ -290,7 +290,7 @@ const menuItems = [
       en: "enkulal Firfir",
       am: "እንቁላል ፍርፍር"
     },
-    price: 170,
+    price: 200,
     category: "ፍርፍር",
     description: {
       en: "Firfir prepared with scrambled eggs and injera.",
@@ -306,8 +306,8 @@ const menuItems = [
   {
     id: 16,
     name: {
-      en: "sga Firfir",
-      am: "ስጋ ፍርፍር"
+      en: "mulu sga Firfir",
+      am: "ሙሉ ስጋ ፍርፍር"
     },
     price: 300,
     category: "ፍርፍር",
@@ -347,7 +347,7 @@ const menuItems = [
       en: "gmash kuanta Firfir",
       am: "ግማሽ ቋንጣ ፍርፍር"
     },
-    price: 200,
+    price: 250,
     category: "ልዩ ምግቦች",
     description: {
       en: "Half chicken firfir with traditional spices and injera.",
@@ -377,6 +377,26 @@ const menuItems = [
       am: "ድንች፣ የበሬ ስጋ፣ ሽንኩርት፣ ቲማቲም፣ የኢትዮጵያ ቅመማ ቅመም"
     },
     image: "/image/dinch.jpg",
+    available: true,
+  },
+
+     {
+    id: 26,
+    name: {
+      en: "gmash sga Firfir",
+      am: "ግማሽ ስጋ ፍርፍር"
+    },
+    price: 200,
+    category: "ፍርፍር",
+    description: {
+      en: "Firfir prepared with meat and injera pieces.",
+      am: "ከስጋ እና የእንጀራ ቁርጥራጭ ጋር የተዘጋጀ ፍርፍር።"
+    },
+    ingredients: {
+      en: "Injera, beef, berbere sauce, Ethiopian butter, onions",
+      am: "እንጀራ፣ የበሬ ስጋ፣ የበርበሬ መረቅ፣ የኢትዮጵያ ቅቤ፣ ሽንኩርት"
+    },
+    image: "/image/sgafirfir.jpg",
     available: true,
   },
   {
@@ -461,7 +481,7 @@ const menuItems = [
       en: "Tea",
       am: "ሻይ"
     },
-    price: 30,
+    price: 20,
     category: "ለስላሳ መጠጦች",
     description: {
       en: "Hot traditional Ethiopian tea.",
@@ -480,7 +500,7 @@ const menuItems = [
       en: "Coffee",
       am: "ቡና"
     },
-    price: 40,
+    price: 30,
     category: "ለስላሳ መጠጦች",
     description: {
       en: "Traditional Ethiopian coffee ceremony.",
@@ -491,6 +511,66 @@ const menuItems = [
       am: "ትኩስ የተጠበሰ የቡና ፍሬ፣ ውሃ"
     },
     image: "/image/coffe.jpg",
+    available: true,
+  },
+
+ 
+    {
+    id: 27,
+    name: {
+      en: "2 litter water",
+      am: "2 ሊትር ዉሀ"
+    },
+    price:60,
+    category: "ለስላሳ መጠጦች",
+    description: {
+      en: "clean nature water.",
+      am: "ንጹህ የተፈጥሮ ውሀ ።"
+    },
+    ingredients: {
+      en: "clean nature water",
+      am: "ንጹህ የተፈጥሮ ውሀ"
+    },
+    image: "/image/2liter.jpg",
+    available: true,
+  },
+
+   {
+    id: 28,
+    name: {
+      en: "1 litter water",
+      am: "1 ሊትር ዉሀ"
+    },
+    price:50,
+    category: "ለስላሳ መጠጦች",
+    description: {
+      en: "clean nature water.",
+      am: "ንጹህ የተፈጥሮ ውሀ ።"
+    },
+    ingredients: {
+      en: "clean nature water",
+      am: "ንጹህ የተፈጥሮ ውሀ"
+    },
+    image: "/image/1liter.jpg",
+    available: true,
+  },
+   {
+    id: 29,
+    name: {
+      en: "0.5 litter water",
+      am: "0.5 ሊትር ዉሀ"
+    },
+    price:30,
+    category: "ለስላሳ መጠጦች",
+    description: {
+      en: "clean nature water.",
+      am: "ንጹህ የተፈጥሮ ውሀ ።"
+    },
+    ingredients: {
+      en: "clean nature water",
+      am: "ንጹህ የተፈጥሮ ውሀ"
+    },
+    image: "/image/water.jpg",
     available: true,
   },
 ];
